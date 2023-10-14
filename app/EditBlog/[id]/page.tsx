@@ -14,7 +14,7 @@ const getBlogById = async (id: any) => {
 
         return res.json();
     } catch (error) {
-        return {};
+        return { message: error, success: false }
     }
 };
 
@@ -23,5 +23,8 @@ export default async function EditBlog({ params }: any) {
     const { blog } = await getBlogById(id);
     const { title, description } = blog;
 
-    return <EditBlogForm id={id} title={title} description={description} />;
+
+    return <>{id && <EditBlogForm id={id} title={title} description={description} />}
+        {!id && <div>No Data available</div>}
+    </>;
 }

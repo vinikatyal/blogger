@@ -9,7 +9,7 @@ export async function POST(request: Request): Promise<Response> {
   return NextResponse.json({ message: "Blog Created" }, { status: 201 });
 }
 
-export async function GET(): Promise<Response>  {
+export async function GET(): Promise<Response> {
   await connectMongoDB();
   const blogs = await Blog.find();
   return NextResponse.json({ blogs });

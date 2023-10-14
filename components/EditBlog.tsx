@@ -3,14 +3,9 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
-type EditBlogProps = {
-    id: number;
-    title: string;
-    description: string;
-}
+import { Blog } from "@/types/blog"
 
-
-export default function EditTopicForm({ id, title, description }: EditBlogProps) {
+export default function EditTopicForm({ id, title, description }: Blog) {
     const [newTitle, setNewTitle] = useState(title);
     const [newDescription, setNewDescription] = useState(description);
 
@@ -35,7 +30,7 @@ export default function EditTopicForm({ id, title, description }: EditBlogProps)
             router.refresh();
             router.push("/");
         } catch (error) {
-            console.log(error);
+            return { message: error, success: false }
         }
     };
 

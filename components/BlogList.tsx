@@ -29,8 +29,6 @@ const getBlogs = async () => {
 export default async function BlogList() {
     const { blogs } = await getBlogs();
 
-    console.log(blogs)
-
     return (
         <>
             {blogs && blogs.map((b: BlogProps) => (
