@@ -9,10 +9,10 @@ export async function POST(request: Request): Promise<Response> {
   return NextResponse.json({ message: "Blog Created" }, { status: 201 });
 }
 
-export async function GET() {
+export async function GET(): Promise<Response>  {
   await connectMongoDB();
-  const topics = await Blog.find();
-  return NextResponse.json({ topics });
+  const blogs = await Blog.find();
+  return NextResponse.json({ blogs });
 }
 
 export async function DELETE(request: any): Promise<Response> {

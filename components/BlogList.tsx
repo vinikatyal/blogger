@@ -3,7 +3,7 @@ import RemoveBtn from "./Remove";
 
 
 type BlogProps = {
-    id: number;
+    _id: string;
     title: string;
     description: string;
 }
@@ -14,24 +14,28 @@ const getBlogs = async () => {
             cache: "no-store",
         });
 
+        console.log(res)
+
         if (!res.ok) {
             throw new Error("Failed to fetch blogs");
         }
 
         return res.json();
     } catch (error) {
-        console.log("Error loading blogs: ", error);
+        return {}
     }
 };
 
 export default async function BlogList() {
     const { blogs } = await getBlogs();
 
+    console.log(blogs)
+
     return (
         <>
-            {blogs.map((b: BlogProps) => (
+            {blogs && blogs.map((b: BlogProps) => (
                 <div
-                    key={b.id}
+                    key={b._id}
                     className="p-4 border border-slate-300 my-3 flex justify-between gap-5 items-start"
                 >
                     <div>
@@ -40,8 +44,8 @@ export default async function BlogList() {
                     </div>
 
                     <div className="flex gap-2">
-                        <RemoveBtn id={b.id} />
-                        <Link href={`/editTopic/${b.id}`}>
+                        <RemoveBtn id={b._id} />
+                        <Link href={`/EditBlog/${b._id}`}>
                             Edit
                         </Link>
                     </div>

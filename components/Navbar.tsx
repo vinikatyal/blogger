@@ -6,7 +6,7 @@ export default function Navbar() {
       <Link className="text-white font-bold" href={"/"}>
        Blogger
       </Link>
-      <Link className="bg-white p-2" href={"/blog"}>
+      <Link className="bg-white p-2" href={"/AddBlog"}>
         Add Blog Post
       </Link>
     </nav>
