@@ -49,11 +49,10 @@ export default function AddBlog() {
                 placeholder="Blog Title"
             />
 
-            <input
+            <textarea
                 onChange={(e) => setDescription(e.target.value)}
                 value={description}
                 className="border border-slate-500 px-8 py-2"
-                type="text"
                 placeholder="Blog Description"
             />
 

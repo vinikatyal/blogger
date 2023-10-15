@@ -44,11 +44,10 @@ export default function EditTopicForm({ id, title, description }: Blog) {
                 placeholder="Blog Title"
             />
 
-            <input
+            <textarea
                 onChange={(e) => setNewDescription(e.target.value)}
                 value={newDescription}
                 className="border border-slate-500 px-8 py-2"
-                type="text"
                 placeholder="Topic Description"
             />
 
