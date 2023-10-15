@@ -12,7 +12,7 @@ export default function RemoveBtn({ id }: RemoveProps) {
         const confirmed = confirm("Are you sure?");
 
         if (confirmed) {
-            const res = await fetch(`http://localhost:3000/api/blogs?id=${id}`, {
+            const res = await fetch(`/api/blogs?id=${id}`, {
                 method: "DELETE",
             });
 

@@ -1,8 +1,10 @@
 import EditBlogForm from "@/components/EditBlog";
 
+import { BASE_URL } from "@/libs/constants";
+
 const getBlogById = async (id: any) => {
     try {
-        const res = await fetch(`http://localhost:3000/api/blogs/${id}`, {
+        const res = await fetch(`${BASE_URL}/api/blogs/${id}`, {
             cache: "no-store",
         });
 

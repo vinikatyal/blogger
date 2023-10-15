@@ -20,7 +20,7 @@ export default function AddBlog() {
         }
 
         try {
-            const res = await fetch("http://localhost:3000/api/blogs", {
+            const res = await fetch(`/api/blogs`, {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",
