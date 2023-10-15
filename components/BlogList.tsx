@@ -37,6 +37,9 @@ export default async function BlogList() {
                     <div>
                         <h2 className="font-bold text-2xl">{b.title}</h2>
                         <div>{b.description}</div>
+                        <Link className="underline text-blue-600 hover:text-blue-800 visited:text-purple-600" href={`/ViewBlog/${b._id}`}>
+                            Read More
+                        </Link>
                     </div>
 
                     <div className="flex gap-2">
