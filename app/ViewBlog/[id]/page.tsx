@@ -1,4 +1,4 @@
-import ViewBlogList from "@/components/ViewBlog";
+import ViewBlogForm from "@/components/ViewBlog";
 
 import { BASE_URL } from "@/libs/constants";
 
@@ -26,7 +26,7 @@ export default async function ViewBlog({ params }: any) {
     const { title, description } = blog;
 
 
-    return <>{id && <ViewBlogList id={id} title={title} description={description} />}
+    return <>{id && <ViewBlogForm id={id} title={title} description={description} />}
         {!id && <div>No Data available</div>}
     </>;
 }
