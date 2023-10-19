@@ -5,13 +5,17 @@ import { NextResponse } from "next/server";
 export async function POST(request: Request): Promise<Response> {
   const { title, description } = await request.json();
   await connectMongoDB();
-  await Blog.create({ title, description });
+  const slug = title?.replace(/\s+/g, '-').toLowerCase()
+  await Blog.create({ title, description, slug });
   return NextResponse.json({ message: "Blog Created" }, { status: 201 });
 }
 
 export async function GET(): Promise<Response> {
-  await connectMongoDB();
+  const db = await connectMongoDB();
+  const blogsNew = await db?.collection('blogs').find().sort({ date: -1 }).toArray()
+  console.log('New blogs', blogsNew)
   const blogs = await Blog.find();
+  console.log('Old blogs', blogs)
   return NextResponse.json({ blogs });
 }
 

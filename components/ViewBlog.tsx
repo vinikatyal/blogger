@@ -1,11 +1,8 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-
 import { Blog } from "@/types/blog"
 
-export default function ViewBlog({ id, title, description }: Blog) {
+export default function ViewBlog({ id, title, description, slug }: Blog) {
 
     return (
         <div>

@@ -23,10 +23,10 @@ const getBlogById = async (id: any) => {
 export default async function EditBlog({ params }: any) {
     const { id } = params;
     const { blog } = await getBlogById(id);
-    const { title, description } = blog;
+    const { title, description, slug } = blog;
 
 
-    return <>{id && <EditBlogForm id={id} title={title} description={description} />}
+    return <>{id && <EditBlogForm id={id} title={title} description={description} slug={slug} />}
         {!id && <div>No Data available</div>}
     </>;
 }
