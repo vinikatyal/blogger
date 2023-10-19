@@ -1,6 +1,7 @@
 import Link from "next/link";
 import RemoveBtn from "./Remove";
 
+import { BASE_URL } from "@/libs/constants";
 
 type BlogProps = {
     _id: string;
@@ -10,7 +11,7 @@ type BlogProps = {
 
 const getBlogs = async () => {
     try {
-        const res = await fetch("http://localhost:3000/api/blogs", {
+        const res = await fetch(`${BASE_URL}/api/blogs`, {
             cache: "no-store",
         });
 
